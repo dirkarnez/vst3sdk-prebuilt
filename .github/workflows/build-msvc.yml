@@ -12,7 +12,6 @@ jobs:
     runs-on: windows-2019
     env:
       libraryName: steinbergmedia
-      cmakeInstallationPath: steinbergmedia-installation
       tagName: v3.7.7_build_19
       mingwTargetZip: steinbergmedia-${{ github.ref_name }}-msvc2019.zip
     steps:
@@ -55,12 +54,12 @@ jobs:
           uses: thedoctor0/zip-release@master
           with:
             type: 'zip'
-            directory: "vst3sdk/cmake-build/${{ env.cmakeInstallationPath }}"
+            directory: "vst3sdk/cmake-build"
             filename: "${{ env.mingwTargetZip }}"
 
         - name: Release prebuilt
           uses: ncipollo/release-action@v1
           with:
-            artifacts: "vst3sdk/cmake-build/${{ env.cmakeInstallationPath }}/${{ env.mingwTargetZip }}"
+            artifacts: "vst3sdk/cmake-build/${{ env.mingwTargetZip }}"
             allowUpdates: true
             token: ${{ secrets.GITHUB_TOKEN }}
