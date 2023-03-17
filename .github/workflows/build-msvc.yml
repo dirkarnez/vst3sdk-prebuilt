@@ -13,7 +13,7 @@ jobs:
     env:
       libraryName: steinbergmedia
       tagName: v3.7.7_build_19
-      mingwTargetZip: steinbergmedia-${{ github.ref_name }}-msvc2019.zip
+      msvc2019TargetZip: steinbergmedia-${{ github.ref_name }}-msvc2019.zip
     steps:
 
         - uses: actions/checkout@v3
@@ -55,11 +55,11 @@ jobs:
           with:
             type: 'zip'
             directory: "vst3sdk/cmake-build"
-            filename: "${{ env.mingwTargetZip }}"
+            filename: "${{ env.msvc2019TargetZip }}"
 
         - name: Release prebuilt
           uses: ncipollo/release-action@v1
           with:
-            artifacts: "vst3sdk/cmake-build/${{ env.mingwTargetZip }}"
+            artifacts: "vst3sdk/cmake-build/${{ env.msvc2019TargetZip }}"
             allowUpdates: true
             token: ${{ secrets.GITHUB_TOKEN }}
