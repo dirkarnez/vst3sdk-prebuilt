@@ -11,9 +11,9 @@ jobs:
     name: Create Release
     runs-on: windows-2019
     env:
-      libraryName: steinbergmedia
+      libraryName: vst3sdk
       tagName: v3.7.7_build_19
-      msvc2019TargetZip: steinbergmedia-${{ github.ref_name }}-msvc2019.zip
+      msvc2019TargetZip: vst3sdk-${{ github.ref_name }}-msvc2019.zip
     steps:
 
         - uses: actions/checkout@v3
