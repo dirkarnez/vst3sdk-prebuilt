@@ -48,8 +48,8 @@ jobs:
             cd cmake-build &&^
             cmake --build . --config Release --target ALL_BUILD -v -- /maxcpucount &&^
             dir /s &&^
-            cmake --install . 
-            
+            cmake --install . && 
+            dir /s
             
         - name: Archive Release
           uses: thedoctor0/zip-release@master
