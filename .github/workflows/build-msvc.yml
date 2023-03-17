@@ -46,8 +46,10 @@ jobs:
             -DSMTG_CREATE_PLUGIN_LINK=0 ^
             -DCMAKE_INSTALL_PREFIX="cmake-build/${{ env.cmakeInstallationPath }}" -B./cmake-build &&^
             cd cmake-build &&^
-            cmake --build . &&^
+            cmake --build . --config Release --target ALL_BUILD -v -- /maxcpucount &&^
+            dir /s &&^
             cmake --install . 
+            
             
         - name: Archive Release
           uses: thedoctor0/zip-release@master
